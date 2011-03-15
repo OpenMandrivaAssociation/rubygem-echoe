@@ -1,53 +1,59 @@
-%define oname echoe
+# Generated from echoe-4.5.5.gem by gem2rpm5 -*- rpm-spec -*-          
+%define	rbname	echoe
 
-Summary:    A Rubygems packaging tool
-Name:       rubygem-%{oname}
-Version:    4.5.5
-Release:    %mkrel 1
-Group:      Development/Ruby
-License:    MIT
-URL:        http://blog.evanweaver.com/files/doc/fauna/echoe/
-Source0:    http://gems.rubygems.org/gems/%{oname}-%{version}.gem
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}
-Requires:   rubygems
-Requires:   rubygem(gemcutter)
-Requires:   rubygem(rubyforge)
-BuildRequires: rubygems
-BuildArch:  noarch
-Provides:   rubygem(%{oname}) = %{version}
+Summary:	A Rubygems packaging tool that provides Rake tasks for documentation, extension compiling, testing, and deployment
+Name:		rubygem-%{rbname}
+
+Version:	4.5.5
+Release:	1
+Group:		Development/Ruby
+License:	MIT
+URL:		http://fauna.github.com/fauna/echoe/
+Source0:	http://rubygems.org/gems/%{rbname}-%{version}.gem
+BuildRequires:	rubygems >= 1.2
+BuildArch:	noarch
 
 %description
 A Rubygems packaging tool that provides Rake tasks for documentation,
 extension compiling, testing, and deployment.
 
+%package	doc
+Summary:	Documentation for %{name}
+Group:		Books/Computer books
+Requires:	%{name} = %{EVRD}
+
+%description	doc
+Documents, RDoc & RI documentation for %{name}.
+
 %prep
+%setup -q
 
 %build
+%gem_build -f vendor/
 
 %install
-rm -rf %buildroot
-mkdir -p %{buildroot}%{ruby_gemdir}
-gem install --local --install-dir %{buildroot}%{ruby_gemdir} \
-            --force --rdoc %{SOURCE0}
-rm -f %{buildroot}%{ruby_gemdir}/gems/%{oname}-%{version}/echoe.gemspec
+%gem_install
 
 %clean
-rm -rf %buildroot
+rm -rf %{buildroot}
 
 %files
-%defattr(-, root, root, -)
-%dir %{ruby_gemdir}/gems/%{oname}-%{version}/
-%{ruby_gemdir}/gems/%{oname}-%{version}/vendor/
-%doc %{ruby_gemdir}/doc/%{oname}-%{version}
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/CHANGELOG
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/LICENSE
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/Manifest
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/MIT-LICENSE
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/Rakefile
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/README
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/lib/echoe.rb
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/lib/echoe/extensions.rb
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/lib/echoe/platform.rb
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/lib/echoe/rubygems.rb
-%{ruby_gemdir}/cache/%{oname}-%{version}.gem
-%{ruby_gemdir}/specifications/%{oname}-%{version}.gemspec
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/echoe
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/vendor/
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/vendor/rake
+%{ruby_gemdir}/gems/%{rbname}-%{version}/vendor/rake/MIT-LICENSE
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/vendor/rake/lib
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/vendor/rake/lib/rake
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/vendor/rake/lib/rake/contrib
+%{ruby_gemdir}/gems/%{rbname}-%{version}/vendor/rake/lib/rake/contrib/*.rb
+%{ruby_gemdir}/specifications/%{rbname}-%{version}.gemspec
+
+%files doc
+%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/CHANGELOG
+%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/LICENSE
+%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/README
+%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/*.rb
+%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/echoe/*.rb
+%doc %{ruby_gemdir}/doc/%{rbname}-%{version}
