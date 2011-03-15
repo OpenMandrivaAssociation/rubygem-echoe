@@ -2,7 +2,7 @@
 
 Summary:    A Rubygems packaging tool
 Name:       rubygem-%{oname}
-Version:    4.3.1
+Version:    4.5.5
 Release:    %mkrel 1
 Group:      Development/Ruby
 License:    MIT
@@ -45,7 +45,6 @@ rm -rf %buildroot
 %doc %{ruby_gemdir}/gems/%{oname}-%{version}/MIT-LICENSE
 %doc %{ruby_gemdir}/gems/%{oname}-%{version}/Rakefile
 %doc %{ruby_gemdir}/gems/%{oname}-%{version}/README
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/TODO
 %doc %{ruby_gemdir}/gems/%{oname}-%{version}/lib/echoe.rb
 %doc %{ruby_gemdir}/gems/%{oname}-%{version}/lib/echoe/extensions.rb
 %doc %{ruby_gemdir}/gems/%{oname}-%{version}/lib/echoe/platform.rb
