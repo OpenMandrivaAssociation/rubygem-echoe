@@ -57,3 +57,15 @@ rm -rf %{buildroot}
 %doc %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/*.rb
 %doc %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/echoe/*.rb
 %doc %{ruby_gemdir}/doc/%{rbname}-%{version}
+
+
+%changelog
+* Tue Mar 15 2011 Per Øyvind Karlsen <peroyvind@mandriva.org> 4.5.5-1
++ Revision: 645111
+- regenerate spec with gem2rpm5
+- new release: 4.5.5
+
+* Sat Oct 09 2010 Rémy Clouard <shikamaru@mandriva.org> 4.3.1-1mdv2011.0
++ Revision: 584413
+- import rubygem-echoe
+
