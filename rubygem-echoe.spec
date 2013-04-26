@@ -1,11 +1,11 @@
 # Generated from echoe-4.5.5.gem by gem2rpm5 -*- rpm-spec -*-          
 %define	rbname	echoe
 
-Summary:	A Rubygems packaging tool that provides Rake tasks for documentation, extension compiling, testing, and deployment
+Summary:	Rubygems packaging tool
 Name:		rubygem-%{rbname}
 
 Version:	4.5.5
-Release:	1
+Release:	2
 Group:		Development/Ruby
 License:	MIT
 URL:		http://fauna.github.com/fauna/echoe/
