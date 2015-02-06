@@ -5,7 +5,7 @@ Summary:	Rubygems packaging tool
 Name:		rubygem-%{rbname}
 
 Version:	4.5.5
-Release:	2
+Release:	3
 Group:		Development/Ruby
 License:	MIT
 URL:		http://fauna.github.com/fauna/echoe/
