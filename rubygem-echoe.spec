@@ -8,7 +8,7 @@ Version:	4.5.5
 Release:	3
 Group:		Development/Ruby
 License:	MIT
-URL:		http://fauna.github.com/fauna/echoe/
+URL:		https://fauna.github.com/fauna/echoe/
 Source0:	http://rubygems.org/gems/%{rbname}-%{version}.gem
 BuildRequires:	rubygems >= 1.2
 BuildArch:	noarch
